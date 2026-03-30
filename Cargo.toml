@@ -1,0 +1,32 @@
+[package]
+name = "claimchain_ph"
+version = "0.1.0"
+edition = "2021"
+authors = ["ClaimChain PH Team"]
+description = "Stellar-based insurance claims system for instant policy verification and payouts"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+soroban-sdk = "21.7.0"
+
+[dev-dependencies]
+soroban-sdk = { version = "21.7.0", features = ["testutils"] }
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
+
+[profile.release-with-logs]
+inherits = "release"
+debug-assertions = true
+
+[target.wasm32-unknown-unknown]
+rustflags = ["-C", "target-cpu=mvp"]
