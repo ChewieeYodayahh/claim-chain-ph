@@ -1,5 +1,8 @@
 #![no_std]
-use soroban_sdk::{contract, contractimpl, contracttype, Address, Env, String, Vec, symbol_short};
+use soroban_sdk::{contract, contractimpl, contracttype, Address, Env, String, symbol_short};
+ 
+#[cfg(test)]
+mod test;
  
 /// Storage keys for the contract
 #[contracttype]

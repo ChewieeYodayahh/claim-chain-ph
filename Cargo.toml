@@ -9,10 +9,10 @@ description = "Stellar-based insurance claims system for instant policy verifica
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-soroban-sdk = "21.7.0"
+soroban-sdk = "20.5.0"
 
 [dev-dependencies]
-soroban-sdk = { version = "21.7.0", features = ["testutils"] }
+soroban-sdk = { version = "20.5.0", features = ["testutils"] }
 
 [profile.release]
 opt-level = "z"
@@ -27,6 +27,3 @@ lto = true
 [profile.release-with-logs]
 inherits = "release"
 debug-assertions = true
-
-[target.wasm32-unknown-unknown]
-rustflags = ["-C", "target-cpu=mvp"]
